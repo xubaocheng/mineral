@@ -1,3 +1,4 @@
-// export { default as Navbar } from './Navbar'
-// export { default as Sidebar } from './Sidebar'
+export { default as AppTop } from './AppTop'
+export { default as AppSerch } from './AppSerch'
+export { default as AppBottom } from './AppBottom'
 export { default as AppMain } from './AppMain'

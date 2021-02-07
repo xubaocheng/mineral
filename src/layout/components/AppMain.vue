@@ -18,5 +18,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+.app-main{
+  width: 100%;
+  background: yellow;
+}
 </style>
