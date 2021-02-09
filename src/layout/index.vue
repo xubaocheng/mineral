@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <AppTop />
-    <AppSerch />
-    <breadcrumb class="breadcrumb-container" />
-    <app-main />
-    <AppBottom />
-  </div>
+	<div>
+		<AppTop />
+		<AppSerch />
+		<breadcrumb class="breadcrumb-container" />
+		<app-main />
+		<AppBottom />
+	</div>
 </template>
 
 <script>
@@ -13,20 +13,20 @@ import Breadcrumb from '@/components/Breadcrumb'
 import { AppTop, AppSerch, AppMain, AppBottom } from './components'
 
 export default {
-  name: 'Layout',
-  components: {
-    Breadcrumb,
-    AppTop,
-    AppSerch,
-    AppBottom,
-    AppMain
-  },
-  computed: {
+	name: 'Layout',
+	components: {
+		Breadcrumb,
+		AppTop,
+		AppSerch,
+		AppBottom,
+		AppMain
+	},
+	computed: {
 
-  },
-  methods: {
+	},
+	methods: {
 
-  }
+	}
 }
 </script>
 

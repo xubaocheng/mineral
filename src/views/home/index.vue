@@ -1,19 +1,19 @@
 <template>
-  <div class="home-container">
-    首页
-  </div>
+	<div class="home-container">
+		首页
+	</div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'Home',
-  computed: {
-    ...mapGetters([
-      'name'
-    ])
-  }
+	name: 'Home',
+	computed: {
+		...mapGetters([
+			'name'
+		])
+	}
 }
 </script>
 

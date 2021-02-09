@@ -1,24 +1,24 @@
 <!-- test -->
 <template>
-  <div>test</div>
+	<div>test</div>
 </template>
 
 <script>
 export default {
-  name: '',
+	name: '',
 
-  components: {},
+	components: {},
 
-  data() {
-    return {
-    }
-  },
+	data() {
+		return {
+		}
+	},
 
-  computed: {},
+	computed: {},
 
-  mounted() {},
+	mounted() {},
 
-  methods: {}
+	methods: {}
 }
 
 </script>

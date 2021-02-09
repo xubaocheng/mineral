@@ -1,31 +1,31 @@
 <!-- 公共搜索-->
 <template>
-  <div class="app-serch">搜索</div>
+	<div class="app-serch">搜索</div>
 </template>
 
 <script>
 export default {
-  name: 'AppSerch',
+	name: 'AppSerch',
 
-  components: {},
+	components: {},
 
-  data() {
-    return {
-    }
-  },
+	data() {
+		return {
+		}
+	},
 
-  computed: {},
+	computed: {},
 
-  mounted() {},
+	mounted() {},
 
-  methods: {}
+	methods: {}
 }
 
 </script>
 <style lang='scss' scoped>
 .app-serch{
-  width: 100%;
-  height: 100px;
-  background: #f0a;
+    width: 100%;
+    height: 100px;
+    // background: #f0a;
 }
 </style>

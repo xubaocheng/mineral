@@ -1,24 +1,24 @@
 <!-- 公共底部 -->
 <template>
-  <div class="app-bottom">底部</div>
+	<div class="app-bottom">底部</div>
 </template>
 
 <script>
 export default {
-  name: 'AppBottom',
+	name: 'AppBottom',
 
-  components: {},
+	components: {},
 
-  data() {
-    return {
-    }
-  },
+	data() {
+		return {
+		}
+	},
 
-  computed: {},
+	computed: {},
 
-  mounted() {},
+	mounted() {},
 
-  methods: {}
+	methods: {}
 }
 
 </script>
@@ -26,6 +26,6 @@ export default {
 .app-bottom{
   width: 100%;
   height: 200px;
-  background: #f60;
+  // background: #f60;
 }
 </style>
