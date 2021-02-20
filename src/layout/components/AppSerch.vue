@@ -1,6 +1,20 @@
 <!-- 公共搜索-->
 <template>
-	<div class="app-serch">搜索</div>
+	<div class="app-serch clearFix">
+		<a href="javascript:;" class="left">
+			<img src="../../assets/img/logo.png" alt="">
+		</a>
+		<div class="app-serch-warpper right">
+			<el-input v-model="serchInput" placeholder="请输入内容" class="input-with-select">
+				<el-select slot="prepend" v-model="select" placeholder="请选择">
+					<el-option label="全部" value="1" />
+					<el-option label="xxx" value="2" />
+					<el-option label="xxxx" value="3" />
+				</el-select>
+				<el-button slot="append" icon="el-icon-search" />
+			</el-input>
+		</div>
+	</div>
 </template>
 
 <script>
@@ -11,6 +25,8 @@ export default {
 
 	data() {
 		return {
+			serchInput: '',
+			select: '1'
 		}
 	},
 
@@ -22,10 +38,22 @@ export default {
 }
 
 </script>
+<style lang="scss">
+.app-serch-warpper{
+	.el-select .el-input {
+		width: 130px;
+	}
+	.input-with-select .el-input-group__prepend {
+		background-color: #fff;
+	}
+}
+</style>
 <style lang='scss' scoped>
 .app-serch{
-    width: 100%;
+    width: 1270px;
+    margin: 0 auto;
     height: 100px;
+	line-height: 100px;
     // background: #f0a;
 }
 </style>
