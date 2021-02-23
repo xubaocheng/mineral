@@ -1,7 +1,7 @@
 <!-- 公共搜索-->
 <template>
 	<div class="app-serch clearFix">
-		<a href="javascript:;" class="left">
+		<a href="javascript;;" class="left">
 			<img src="../../assets/img/logo.png" alt="">
 		</a>
 		<div class="app-serch-warpper right">
@@ -11,7 +11,7 @@
 					<el-option label="xxx" value="2" />
 					<el-option label="xxxx" value="3" />
 				</el-select>
-				<el-button slot="append" icon="el-icon-search" />
+				<el-button slot="append" icon="el-icon-search" class="btn-color" />
 			</el-input>
 		</div>
 	</div>
@@ -39,6 +39,7 @@ export default {
 
 </script>
 <style lang="scss">
+
 .app-serch-warpper{
 	.el-select .el-input {
 		width: 130px;
@@ -49,11 +50,18 @@ export default {
 }
 </style>
 <style lang='scss' scoped>
+@import '~@/styles/home.scss';
 .app-serch{
     width: 1270px;
     margin: 0 auto;
     height: 100px;
 	line-height: 100px;
-    // background: #f0a;
+	&-warpper{
+		.btn-color{
+			background: $main-tone-color;
+			color:#fff;
+			font-size: 16px;
+		}
+	}
 }
 </style>

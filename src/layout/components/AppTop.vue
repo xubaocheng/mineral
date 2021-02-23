@@ -47,8 +47,7 @@ export default {
 <style lang='scss' scoped>
 .app-top{
   width: 100%;
-  height: 59px;
-  line-height: 59px;
+  padding: 20px 0 18px 0;
   border-bottom: 2px solid #b98108;
   &-content{
     width: 1270px;
