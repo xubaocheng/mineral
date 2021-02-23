@@ -2,6 +2,7 @@
 	<div>
 		<AppTop />
 		<AppSerch />
+		<AppNav />
 		<breadcrumb class="breadcrumb-container" />
 		<app-main />
 		<AppBottom />
@@ -10,7 +11,7 @@
 
 <script>
 import Breadcrumb from '@/components/Breadcrumb'
-import { AppTop, AppSerch, AppMain, AppBottom } from './components'
+import { AppTop, AppSerch, AppNav, AppMain, AppBottom } from './components'
 
 export default {
 	name: 'Layout',
@@ -19,7 +20,8 @@ export default {
 		AppTop,
 		AppSerch,
 		AppBottom,
-		AppMain
+		AppMain,
+		AppNav
 	},
 	computed: {
 

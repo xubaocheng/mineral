@@ -55,8 +55,8 @@ export default {
     width: 1270px;
     margin: 0 auto;
     height: 100px;
-	line-height: 100px;
 	&-warpper{
+		padding: 30px 0;
 		.btn-color{
 			background: $main-tone-color;
 			color:#fff;

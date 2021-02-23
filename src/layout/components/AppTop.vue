@@ -31,9 +31,7 @@ export default {
 	components: {},
 
 	data() {
-		return {
-
-		}
+		return {}
 	},
 
 	computed: {},
@@ -42,42 +40,54 @@ export default {
 
 	methods: {}
 }
-
 </script>
 <style lang='scss' scoped>
-.app-top{
-  width: 100%;
-  padding: 20px 0 18px 0;
-  border-bottom: 2px solid #b98108;
-  &-content{
-    width: 1270px;
-    margin: 0 auto;
-    &-text{
-        p{
-          display: inline-block;
-        }
-        span{
-          color: #a0a0a0;
-          em{
-            font-style: normal;
-            color: #297eb5;
-          }
-        }
-    }
-    &-warpper{
-      &-left{
-        margin-right: 40px;
-        a{
-          color: #2a3294;
-          padding: 0 10px;
-          height: 15px;
-          border-right: 1px solid #2a3294;
-        }
-        a:last-child{
-          border-right: none;
-        }
-      }
-    }
-  }
+.app-top {
+	width: 100%;
+	padding: 20px 0 18px 0;
+	border-bottom: 2px solid #b98108;
+	&-content {
+		width: 1270px;
+		margin: 0 auto;
+		&-text {
+			p {
+				display: inline-block;
+			}
+			span {
+				color: #a0a0a0;
+				em {
+					font-style: normal;
+					color: #297eb5;
+				}
+			}
+		}
+		&-warpper {
+			&-left {
+				margin-right: 40px;
+				a {
+					color: #2a3294;
+					padding: 0 10px;
+					height: 15px;
+					border-right: 1px solid #2a3294;
+				}
+				a:last-child {
+					border-right: none;
+				}
+			}
+			&-right {
+				span {
+					display: inline-block;
+					color: #2a3294;
+					padding: 0 5px;
+					height: 15px;
+					border-right: 1px solid #2a3294;
+				}
+				span:last-child {
+					border-right: none;
+				}
+			}
+		}
+	}
+
 }
 </style>
