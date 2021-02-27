@@ -1,17 +1,22 @@
 <template>
-	<div>
+	<div class="container">
 		<AppTop />
 		<AppSerch />
 		<AppNav />
 		<breadcrumb class="breadcrumb-container" />
-		<app-main />
+		<div class="container-warpper">
+			<app-main />
+			<div class="qr_code">
+				<QRcode />
+			</div>
+		</div>
 		<AppBottom />
 	</div>
 </template>
 
 <script>
 import Breadcrumb from '@/components/Breadcrumb'
-import { AppTop, AppSerch, AppNav, AppMain, AppBottom } from './components'
+import { AppTop, AppSerch, AppNav, AppMain, AppBottom, QRcode } from './components'
 
 export default {
 	name: 'Layout',
@@ -21,7 +26,8 @@ export default {
 		AppSerch,
 		AppBottom,
 		AppMain,
-		AppNav
+		AppNav,
+		QRcode
 	},
 	computed: {
 
@@ -33,5 +39,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container{
+	width: 100%;
+	&-warpper{
+		// width: 1170px;
+		// margin: 0 auto;
+		position: relative;
+		.qr_code{
+			position: fixed;
+			top: 460px;
+			right: 150px;
+		}
+	}
+
+}
 
 </style>
