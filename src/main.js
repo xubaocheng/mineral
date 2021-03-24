@@ -16,6 +16,18 @@ import '@/icons' // icon
 import '@/permission' // permission control
 // 使用阿里的icon
 import '@/assets/iconfont/iconfont.css'
+
+// 引入echarts
+import echarts from 'echarts'
+Vue.prototype.$echarts = echarts
+import china from '@/assets/mapJson/china.json' // 此处填上面内容创建的china.json文件的路径
+echarts.registerMap('china', china)
+
+import VideoPlayer from 'vue-video-player'
+require('video.js/dist/video-js.css')
+require('vue-video-player/src/custom-theme.css')
+
+Vue.use(VideoPlayer)
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api

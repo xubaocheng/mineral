@@ -64,12 +64,96 @@
 		<div class="home-container-topicOverview">
 			<div class="home-container-topicOverview-main clearFix">
 				<div class="home-container-topicOverview-main-chart left">
-					sss
+					<div class="home-container-topicOverview-main-chart-side" />
+					<div class="home-container-topicOverview-main-chart-warpper">
+						<div class="home-container-topicOverview-main-chart-warpper-title clearFix">
+							<span
+								v-for="(item,index) in mapBtn"
+								:key="`mapBtn_item_${index}`"
+								class="left"
+								:class="{active: currrntIndex === index}"
+								@click="handleMapBtn(index)"
+								>{{ item.name }}</span>
+						</div>
+						<div class="home-container-topicOverview-main-chart--warpper-map">
+							<EchartCom :option="mapOption" height="400" />
+						</div>
+					</div>
 				</div>
 				<div class="home-container-topicOverview-main-modul right">
-					www
+					<div class="home-container-topicOverview-main-modul-top">
+						<el-row>
+							<el-col :span="12" class="home-container-topicOverview-main-modul-top-l">
+								<h5>矿产名称</h5>
+								<p>霍林郭勒矿</p>
+								<p>满洲里矿</p>
+								<p>牙克石矿</p>
+								<p>额尔古纳矿</p>
+								<p>乌兰浩特矿</p>
+							</el-col>
+							<el-col :span="12">
+								<h6>矿产种类</h6>
+								<p>地热</p>
+								<p>金刚石</p>
+								<p>二氧化碳气</p>
+								<p>金</p>
+								<p>稀土</p>
+							</el-col>
+						</el-row>
+						<div class="home-container-topicOverview-main-modul-top-moreBtn">
+							<span>更多>></span>
+						</div>
+					</div>
+					<div class="home-container-topicOverview-main-modul-bottom">
+						<div class="home-container-topicOverview-main-modul-bottom-title clearFix">
+							<h4 class="left">相关图片</h4>
+							<span class="right">更多>></span>
+						</div>
+						<div class="home-container-topicOverview-main-modul-bottom-content">
+							<el-row :gutter="10">
+								<el-col :span="12">
+									<div class="home-container-topicOverview-main-modul-bottom-content-imgBox">
+										<img src="../../assets/img/ks1.jpg" alt="">
+										<div class="home-container-topicOverview-main-modul-bottom-content-imgBox-tip">火山岩大地构造图</div>
+									</div>
+								</el-col>
+								<el-col :span="12">
+									<div class="home-container-topicOverview-main-modul-bottom-content-imgBox">
+										<img src="../../assets/img/ks2.jpg" alt="">
+										<div class="home-container-topicOverview-main-modul-bottom-content-imgBox-tip">火山岩大地构造图</div>
+									</div>
+								</el-col>
+								<el-col :span="12">
+									<div class="home-container-topicOverview-main-modul-bottom-content-imgBox">
+										<img src="../../assets/img/ks3.jpg" alt="">
+										<div class="home-container-topicOverview-main-modul-bottom-content-imgBox-tip">火山岩大地构造图</div>
+									</div>
+								</el-col>
+								<el-col :span="12">
+									<div class="home-container-topicOverview-main-modul-bottom-content-imgBox">
+										<img src="../../assets/img/ks4.jpg" alt="">
+										<div class="home-container-topicOverview-main-modul-bottom-content-imgBox-tip">火山岩大地构造图</div>
+									</div>
+								</el-col>
+							</el-row>
+						</div>
+					</div>
 				</div>
 			</div>
+		</div>
+		<div class="home-container-vap">
+			<div class="home-container-vap-main clearFix">
+				<div class="home-container-vap-main-list left">
+					<TitleCom :title="vapTitle" :btn-text="vapBtnText" @changeComponent="changeComponent" />
+					<div class="home-container-vap-main-list-content">
+						<component :is="comView" />
+					</div>
+				</div>
+				<div class="home-container-vap-main-recommend right">
+					<RecommendPic />
+				</div>
+			</div>
+
 		</div>
 	</div>
 </template>
@@ -79,13 +163,26 @@ import { mapGetters } from 'vuex'
 import TitleCom from './components/Title'
 import SideModul from './components/SideModul'
 import Listcom from '_c/ListCom'
+import EchartCom from './components/EchartCom'
+import RecommendPic from './components/RecommendPic'
 export default {
 	name: 'Home',
 
 	components: {
 		TitleCom,
 		Listcom,
-		SideModul
+		SideModul,
+		EchartCom,
+		VideoCom: () => { // 视频
+			return import('./components/VideoCom')
+		},
+		RadioCom: () => { // 音频
+			return import('./components/RadioCom')
+		},
+		PopularCom: () => { // 科普
+			return import('./components/PopularCom')
+		},
+		RecommendPic
 	},
 
 	data() {
@@ -138,7 +235,47 @@ export default {
 					name: '矿产名称',
 					explain: '矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明矿产简介说明'
 				}
-			]
+			],
+			mapBtn: [
+				{
+					name: '新政区划',
+					index: 0
+				},
+				{
+					name: '成矿区带',
+					index: 1
+				},
+				{
+					name: '成矿系列',
+					index: 2
+				},
+				{
+					name: '矿种组',
+					index: 3
+				}
+			],
+			currrntIndex: 0,
+			mapOption: {},
+			vapTitle: {
+				name1: '影音',
+				name2: '推荐',
+				name3: 'Video recommendation'
+			},
+			vapBtnText: [
+				{
+					name: '视频',
+					value: 'VideoCom'
+				},
+				{
+					name: '音频',
+					value: 'RadioCom'
+				},
+				{
+					name: '科普',
+					value: 'PopularCom'
+				}
+			],
+			comView: 'VideoCom'
 		}
 	},
 
@@ -148,9 +285,122 @@ export default {
 		])
 	},
 
-	mounted() {},
+	mounted() {
+		this.initMap()
+	},
 
-	methods: {}
+	methods: {
+		randomData(minNum, maxNum, decimalNum) {
+			var max = 0; var min = 0
+			minNum <= maxNum ? (min = minNum, max = maxNum) : (min = maxNum, max = minNum)
+			if (decimalNum) {
+				return (Math.random() * (max - min) + min) / 100
+			} else {
+				return Math.floor(Math.random() * (max - min + 1) + min)
+			}
+		},
+		handleMapBtn(index) {
+			this.currrntIndex = index
+		},
+		initMap() {
+			// 绘制图表
+			this.mapOption = {
+				tooltip: {
+					trigger: 'item',
+					backgroundColor: 'rgba(103,134,163,.5)',
+					formatter: function(params) {
+						const str = '<div style="width:220px; height:140px; border-radius:5px; color:#fff; padding:5px 10px">' +
+						'<div style="width:100%; font-size:18px; text-align: center; line-height:20px; padding-bottom:10px;margin-bottom:10px; border-bottom:1px solid #fff;">' + params.name + '</div>' +
+						'<p style="line-height:24px;text-align: left;">矿种: ' + params.data.value + '种</p>' +
+						'<p style="line-height:24px;text-align: left;">矿产地: 320个</p>' +
+						'<p style="line-height:24px;text-align: left;">优势矿产: 铜、金刚石、水晶、铁</p>' +
+						'</div>'
+						return str
+					}
+				},
+				legend: {
+					orient: 'vertical',
+					left: 'left',
+					data: ['']
+				},
+				selectedMode: 'single',
+				series: [
+					{
+						name: '',
+						type: 'map',
+						mapType: 'china',
+						// center: [115.97, 29.71],
+						layoutCenter: ['80%', '100%'],
+						// aspectScale: 0.8, // 长宽比
+						itemStyle: {
+							normal: {
+								areaColor: '#c7d9f1',
+								borderColor: 'rgba(0, 0, 0, 0.2)'
+							},
+							emphasis: {
+								label: {
+									show: false
+								},
+								areaColor: '#07315b',
+								shadowOffsetX: 0,
+								shadowOffsetY: 0,
+								shadowBlur: 20,
+								borderWidth: 0,
+								shadowColor: 'rgba(0, 0, 0, 0.5)'
+							}
+						},
+						showLegendSymbol: false,
+						label: {
+							normal: {
+								show: false
+							}
+						},
+						data: [
+							{ name: '北京', value: this.randomData(0, 100) },
+							{ name: '天津', value: this.randomData(0, 100) },
+							{ name: '上海', value: this.randomData(0, 100) },
+							{ name: '重庆', value: this.randomData(0, 100) },
+							{ name: '河北', value: this.randomData(0, 100) },
+							{ name: '河南', value: this.randomData(0, 100) },
+							{ name: '云南', value: this.randomData(0, 100) },
+							{ name: '辽宁', value: this.randomData(0, 100) },
+							{ name: '黑龙江', value: this.randomData(0, 100) },
+							{ name: '湖南', value: this.randomData(0, 100) },
+							{ name: '安徽', value: this.randomData(0, 100) },
+							{ name: '山东', value: this.randomData(0, 100) },
+							{ name: '新疆', value: this.randomData(0, 100) },
+							{ name: '江苏', value: this.randomData(0, 100) },
+							{ name: '浙江', value: this.randomData(0, 100) },
+							{ name: '江西', value: this.randomData(0, 100) },
+							{ name: '湖北', value: this.randomData(0, 100) },
+							{ name: '广西', value: this.randomData(0, 100) },
+							{ name: '甘肃', value: this.randomData(0, 100) },
+							{ name: '山西', value: this.randomData(0, 100) },
+							{ name: '内蒙古', value: this.randomData(0, 100) },
+							{ name: '陕西', value: this.randomData(0, 100) },
+							{ name: '吉林', value: this.randomData(0, 100) },
+							{ name: '福建', value: this.randomData(0, 100) },
+							{ name: '贵州', value: this.randomData(0, 100) },
+							{ name: '广东', value: this.randomData(0, 100) },
+							{ name: '青海', value: this.randomData(0, 100) },
+							{ name: '西藏', value: this.randomData(0, 100) },
+							{ name: '四川', value: this.randomData(0, 100) },
+							{ name: '宁夏', value: this.randomData(0, 100) },
+							{ name: '海南', value: this.randomData(0, 100) },
+							{ name: '台湾', value: this.randomData(0, 100) },
+							{ name: '香港', value: this.randomData(0, 100) },
+							{ name: '澳门', value: this.randomData(0, 100) }
+						]
+					}
+				]
+			}
+		},
+		// 组件匹配
+		changeComponent(data) {
+			console.log(data)
+			this.comView = data.value
+		}
+	}
 }
 </script>
 
@@ -315,16 +565,133 @@ export default {
 		&-topicOverview{
 			width: 100%;
 			background: #f3f3f3;
+			margin-bottom: 40px;
 			&-main{
 				width: 1170px;
 				margin: 0 auto;
 				padding: 50px 0;
-				height: 660px;
 				&-chart{
 					width: 780px;
+					position: relative;
+					&-side{
+						width: 45px;
+						height: 185px;
+						background: url('../../assets/img/gis.png') no-repeat;
+						position: absolute;
+					}
+					&-warpper{
+						width: 100%;
+						padding: 0 30px;
+						&-title{
+							width: 400px;
+							margin: 0 auto;
+							span{
+								margin-right: 10px;
+								border-radius: 5px;
+								color: #8e959b;
+								padding: 10px;
+								background-color: #c6c4d2;
+								cursor: pointer;
+								&.active{
+									background-color: #063058;
+									color: #fff;
+								}
+							}
+						}
+						&-map{
+
+						}
+					}
 				}
 				&-modul{
 					width: 360px;
+					background-color: #fff;
+					&-top{
+						padding-top: 20px;
+						h5{
+							line-height: 36px;
+							background-color: #07315b;
+							color: #fff;
+							font-size: 15px;
+							text-align: center;
+						}
+						h6{
+							line-height: 36px;
+							background-color: #c4880e;
+							color: #fff;
+							font-size: 15px;
+							text-align: center;
+						}
+						p{
+							line-height: 30px;
+							text-align: center;
+							border-bottom: 1px solid #f1f1f1;
+						}
+						&-l{
+							p{
+								border-right: 1px solid #f1f1f1;
+							}
+						}
+						&-moreBtn{
+							line-height: 40px;
+							text-align: right;
+							padding-right: 10px;
+							span{
+								cursor: pointer;
+							}
+						}
+
+					}
+					&-bottom{
+						&-title{
+							h4{
+								padding-left: 60px;
+							}
+							span{
+								padding-right: 10px;
+							}
+						}
+						&-content{
+							padding: 15px 25px;
+							&-imgBox{
+								margin-bottom: 10px;
+								position: relative;
+								cursor: pointer;
+								&-tip{
+									position: absolute;
+									left: 0;
+									top: 0;
+									width: 100%;
+									line-height: 100px;
+									text-align: center;
+									font-weight: bold;
+									color: #fff;
+									background-color: rgba(0,0,0,0.3);
+									display: none;
+								}
+								&:hover{
+									.home-container-topicOverview-main-modul-bottom-content-imgBox-tip{
+										display: block;
+									}
+								}
+							}
+
+						}
+					}
+				}
+			}
+		}
+		&-vap{
+			width: 100%;
+			padding-bottom: 60px;
+			&-main{
+				width: 1170px;
+				margin: 0 auto;
+				&-list{
+					width: 820px;
+				}
+				&-recommend{
+					width: 320px;
 				}
 			}
 		}

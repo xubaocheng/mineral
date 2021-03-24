@@ -8,13 +8,22 @@
 				<strong>{{ title.name3 }}</strong>
 			</h2>
 		</div>
-		<div class="title-btn right">
+		<div v-if="btnText.length<=2" class="title-btn right">
 			<span
 				v-for="(item,index) in btnText"
 				:key="`btnText_item_${index}`"
 				:class="{active: index === currentIndex}"
 				@click="handlerListBtn(index)"
-				>{{ item }}</span>
+				>{{ item.name }}</span>
+			<strong @click="handlerDetailBtn">MORE</strong>
+		</div>
+		<div v-else class="title-btn right other">
+			<span
+				v-for="(item,index) in btnText"
+				:key="`btnText_item_${index}`"
+				:class="{active: index === currentIndex}"
+				@click="handlerListBtn(index)"
+				>{{ item.name }}</span>
 			<strong @click="handlerDetailBtn">MORE</strong>
 		</div>
 	</div>
@@ -39,7 +48,7 @@ export default {
 		},
 		btnText: {
 			type: Array,
-			default: () => ['新闻推荐', '成果快讯']
+			default: () => [{ name: '新闻推荐', value: '' }, { name: '成果快讯', value: '' }]
 		}
 	},
 	data() {
@@ -55,6 +64,7 @@ export default {
 	methods: {
 		handlerListBtn(index) {
 			this.currentIndex = index
+			this.$emit('changeComponent', this.btnText[index])
 		},
 		handlerDetailBtn() {
 			alert('Detail')
@@ -104,6 +114,24 @@ export default {
 			color: #fff;
 			background-color: #c4880e;
 			padding: 0px 5px;
+		}
+	}
+	.other{
+		span:nth-child(1):after {
+			content: '';
+			height: 16px;
+			border-left: 3px solid #000;
+			position: absolute;
+			top: 3px;
+			right: -2px;
+		}
+		span:nth-child(2):after {
+			content: '';
+			height: 16px;
+			border-left: 3px solid #000;
+			position: absolute;
+			top: 3px;
+			right: -2px;
 		}
 	}
 }
