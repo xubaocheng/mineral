@@ -47,7 +47,7 @@ export default {
 	padding: 20px 0 18px 0;
 	border-bottom: 2px solid #b98108;
 	&-content {
-		width: 1270px;
+		width: 1170px;
 		margin: 0 auto;
 		&-text {
 			p {

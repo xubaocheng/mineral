@@ -3,7 +3,9 @@
 		<AppTop />
 		<AppSerch />
 		<AppNav />
-		<breadcrumb class="breadcrumb-container" />
+		<div class="container-cump">
+			<breadcrumb class="breadcrumb-container" />
+		</div>
 		<div class="container-warpper">
 			<app-main />
 			<div class="qr_code">
@@ -41,6 +43,11 @@ export default {
 <style lang="scss" scoped>
 .container{
 	width: 100%;
+	&-cump{
+		// width: 1170px;
+		background-color: #f2f2f2;
+		padding: 10px 0;
+	}
 	&-warpper{
 		// width: 1170px;
 		// margin: 0 auto;

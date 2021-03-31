@@ -72,7 +72,7 @@ export default {
 	width: 100%;
 	background-color: $main-tone-color;
 	&-list{
-		width: 1270px;
+		width: 1170px;
 		margin: 0 auto;
 		&-item{
 			span{

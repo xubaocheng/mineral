@@ -35,8 +35,42 @@ export const constantRouterMap = [
 				path: 'annalsIndex',
 				name: 'annalsIndex',
 				component: () => import('@/views/annals/index'),
-				meta: { title: '志书概况', icon: 'home' }
+				meta: { title: '志书概况', icon: 'home' },
+				redirect: '/annals/annalsIndex/general-introduction',
+				children: [
+					{
+						path: 'general-introduction',
+						name: 'general-introduction',
+						component: () => import('@/views/annals/components/general-introduction'),
+						meta: { title: '总叙', icon: 'home' }
+					},
+					{
+						path: 'editor-in-chief',
+						name: 'editor-in-chief',
+						component: () => import('@/views/annals/components/editor-in-chief'),
+						meta: { title: '总主编', icon: 'home' }
+					},
+					{
+						path: 'organization-management',
+						name: 'organization-management',
+						component: () => import('@/views/annals/components/organization-management'),
+						meta: { title: '组织管理', icon: 'home' }
+					},
+					{
+						path: 'memorabilia',
+						name: 'memorabilia',
+						component: () => import('@/views/annals/components/memorabilia'),
+						meta: { title: '大事记', icon: 'home' }
+					},
+					{
+						path: 'geological-figures',
+						name: 'geological-figures',
+						component: () => import('@/views/annals/components/geological-figures'),
+						meta: { title: '地质人物', icon: 'home' }
+					}
+				]
 			}
+
 		]
 	},
 	{

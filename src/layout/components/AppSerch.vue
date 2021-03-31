@@ -52,7 +52,7 @@ export default {
 <style lang='scss' scoped>
 @import '~@/styles/home.scss';
 .app-serch{
-    width: 1270px;
+    width: 1170px;
     margin: 0 auto;
     height: 100px;
 	&-warpper{
