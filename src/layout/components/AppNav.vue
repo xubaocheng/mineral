@@ -3,7 +3,7 @@
 	<div class="app-nav">
 		<ul class="app-nav-list clearFix">
 			<li v-for="(item,index) in navList" :key="`navList_item_${index}`" class="app-nav-list-item left">
-				<span :class="{active: currentIndex === index}" @click="handlerNav(index)">{{ item.name }}</span>
+				<span :class="{active: currentIndex === index}" @click="handlerNav(index,item.pathName)">{{ item.name }}</span>
 			</li>
 		</ul>
 	</div>
@@ -19,25 +19,32 @@ export default {
 		return {
 			navList: [
 				{
-					name: '首页'
+					name: '首页',
+					pathName: 'home'
 				},
 				{
-					name: '志书概况'
+					name: '志书概况',
+					pathName: 'annalsIndex'
 				},
 				{
-					name: '新闻资讯'
+					name: '新闻资讯',
+					pathName: 'newsIndex'
 				},
 				{
-					name: '书记天下矿产'
+					name: '书记天下矿产',
+					pathName: 'mineralProductsIndex'
 				},
 				{
-					name: '图示古今资源'
+					name: '图示古今资源',
+					pathName: 'resourcesIndex'
 				},
 				{
-					name: '库存海量信息'
+					name: '库存海量信息',
+					pathName: 'informationIndex'
 				},
 				{
-					name: '普及地学文明'
+					name: '普及地学文明',
+					pathName: 'civilizationIndex'
 				}
 			],
 			currentIndex: 0
@@ -49,8 +56,11 @@ export default {
 	mounted() {},
 
 	methods: {
-		handlerNav(index) {
+		handlerNav(index, pathName) {
 			this.currentIndex = index
+			this.$router.push({
+				name: pathName
+			})
 		}
 	}
 }
