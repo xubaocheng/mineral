@@ -1,18 +1,18 @@
 <template>
 	<div class="container">
-		<AppTop />
+		<!-- <AppTop />
 		<AppSerch />
-		<AppNav />
+		<AppNav /> -->
 		<div class="container-cump">
 			<breadcrumb class="breadcrumb-container" />
 		</div>
 		<div class="container-warpper">
 			<app-main />
 			<div class="qr_code">
-				<QRcode />
+				<!-- <QRcode /> -->
 			</div>
 		</div>
-		<AppBottom />
+		<!-- <AppBottom /> -->
 	</div>
 </template>
 
