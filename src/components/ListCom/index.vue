@@ -79,7 +79,6 @@ export default {
 		border-bottom: 2px solid #bfbfbf;
 		margin-bottom: 25px;
 		&-img{
-			margin-right: 20px;
 			img{
 				width: 190px;
 				height: 115px;
@@ -87,7 +86,8 @@ export default {
 			}
 		}
 		&-text{
-			width: 610px;
+			width: calc(100% - 190px);
+			padding-left: 20px;
 			h2{
 				font-size: 18px;
 				font-weight: bold;

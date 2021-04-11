@@ -25,3 +25,16 @@ export function memorabilia(params) {
 		params
 	})
 }
+
+/**
+ *
+ * @param {xxx,xxx,xxx} params
+ */
+// 地质人物
+export function figures(params) {
+	return request({
+		url: `${baseUrl}/figures`,
+		method: 'post',
+		params
+	})
+}

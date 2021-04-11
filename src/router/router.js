@@ -76,13 +76,19 @@ export const constantRouterMap = [
 	{
 		path: '/news',
 		component: Layout,
-		redirect: '/news/annalsIndex',
+		redirect: '/news/newsIndex',
 		children: [
 			{
 				path: 'newsIndex',
 				name: 'newsIndex',
-				component: () => import('@/views/annals/index'),
+				component: () => import('@/views/news/index'),
 				meta: { title: '新闻资讯', icon: 'home' }
+			},
+			{
+				path: 'newsDetail',
+				name: 'newsDetail',
+				component: () => import('@/views/news/detail'),
+				meta: { title: '资讯详情', icon: 'home' }
 			}
 		]
 	},

@@ -105,6 +105,8 @@ export default {
 .memorabilia{
 	width: 100%;
 	padding-left: 100px;
+	border-left: 2px solid #eee;
+	border-right: 2px solid #eee;
 	.icon-btn-style{
 		font-size:40px; color:#0297fe; font-weight:bold; cursor: pointer;
 	}

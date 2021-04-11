@@ -60,7 +60,7 @@
 				</template>
 				<template v-if="index === 4">
 					<h2>{{ item.heading }}</h2>
-					<div class="organization-management-content-modular-main">
+					<div class="organization-management-content-modular-main clearFix">
 						<ul class="organization-management-content-modular-main-item-list special left">
 							<li v-for="(itemChildChild,j) in item.list" :key="`list_item_${j}`" class="left">
 								<span>{{ itemChildChild.name }} <i /></span>
