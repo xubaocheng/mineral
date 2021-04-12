@@ -1,7 +1,7 @@
 <!-- 列表 -->
 <template>
 	<div class="list-com">
-		<div v-for="(item,index) in list" :key="`list_item_index_${index}`" class="list-com-item clearFix">
+		<div v-for="(item,index) in list" :key="`list_item_index_${index}`" class="list-com-item clearFix" @click="handlerDetail(index)">
 			<div class="list-com-item-img left">
 				<img :src="item.img" alt="">
 			</div>
@@ -67,7 +67,13 @@ export default {
 
 	mounted() {},
 
-	methods: {}
+	methods: {
+		handlerDetail(index) {
+			this.$router.push({
+				path: '/news/newsIndex/newsDetail'
+			})
+		}
+	}
 }
 
 </script>

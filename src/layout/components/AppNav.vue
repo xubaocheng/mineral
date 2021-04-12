@@ -3,7 +3,7 @@
 	<div class="app-nav">
 		<ul class="app-nav-list clearFix">
 			<li v-for="(item,index) in navList" :key="`navList_item_${index}`" class="app-nav-list-item left">
-				<span :class="{active: currentIndex === index}" @click="handlerNav(index,item.pathName)">{{ item.name }}</span>
+				<span :class="{active: item.pathName === activeMenu}" @click="handlerNav(item.pathName)">{{ item.name }}</span>
 			</li>
 		</ul>
 	</div>
@@ -46,22 +46,33 @@ export default {
 					name: '普及地学文明',
 					pathName: 'civilizationIndex'
 				}
-			],
-			currentIndex: 0
+			]
 		}
 	},
 
-	computed: {},
+	computed: {
+		activeMenu() {
+			const route = this.$route
+			const { meta, path } = route
+			// if set path, the sidebar will highlight the path you set
+			if (meta.activeMenu) {
+				return meta.activeMenu
+			}
+			return path
+		}
+	},
 
-	mounted() {},
+	mounted() {
+
+	},
 
 	methods: {
-		handlerNav(index, pathName) {
-			this.currentIndex = index
+		handlerNav(pathName) {
 			this.$router.push({
 				name: pathName
 			})
 		}
+
 	}
 }
 

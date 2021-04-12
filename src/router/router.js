@@ -22,7 +22,7 @@ export const constantRouterMap = [
 				path: 'home',
 				name: 'home',
 				component: () => import('@/views/home/index'),
-				meta: { title: '首页', icon: 'home' }
+				meta: { title: '首页', icon: 'home', activeMenu: 'home' }
 			}
 		]
 	},
@@ -42,31 +42,31 @@ export const constantRouterMap = [
 						path: 'general-introduction',
 						name: 'general-introduction',
 						component: () => import('@/views/annals/components/general-introduction'),
-						meta: { title: '总叙', icon: 'home' }
+						meta: { title: '总叙', icon: 'home', activeMenu: 'annalsIndex' }
 					},
 					{
 						path: 'editor-in-chief',
 						name: 'editor-in-chief',
 						component: () => import('@/views/annals/components/editor-in-chief'),
-						meta: { title: '总主编', icon: 'home' }
+						meta: { title: '总主编', icon: 'home', activeMenu: 'annalsIndex' }
 					},
 					{
 						path: 'organization-management',
 						name: 'organization-management',
 						component: () => import('@/views/annals/components/organization-management'),
-						meta: { title: '组织管理', icon: 'home' }
+						meta: { title: '组织管理', icon: 'home', activeMenu: 'annalsIndex' }
 					},
 					{
 						path: 'memorabilia',
 						name: 'memorabilia',
 						component: () => import('@/views/annals/components/memorabilia'),
-						meta: { title: '大事记', icon: 'home' }
+						meta: { title: '大事记', icon: 'home', activeMenu: 'annalsIndex' }
 					},
 					{
 						path: 'geological-figures',
 						name: 'geological-figures',
 						component: () => import('@/views/annals/components/geological-figures'),
-						meta: { title: '地质人物', icon: 'home' }
+						meta: { title: '地质人物', icon: 'home', activeMenu: 'annalsIndex' }
 					}
 				]
 			}
@@ -82,13 +82,22 @@ export const constantRouterMap = [
 				path: 'newsIndex',
 				name: 'newsIndex',
 				component: () => import('@/views/news/index'),
-				meta: { title: '新闻资讯', icon: 'home' }
-			},
-			{
-				path: 'newsDetail',
-				name: 'newsDetail',
-				component: () => import('@/views/news/detail'),
-				meta: { title: '资讯详情', icon: 'home' }
+				meta: { title: '新闻资讯', icon: 'home' },
+				redirect: '/news/newsIndex/newsList',
+				children: [
+					{
+						path: 'newsList',
+						name: 'newsList',
+						component: () => import('@/views/news/list'),
+						meta: { title: '列表', icon: 'home', activeMenu: 'newsIndex' }
+					},
+					{
+						path: 'newsDetail',
+						name: 'newsDetail',
+						component: () => import('@/views/news/detail'),
+						meta: { title: '列表详情', icon: 'home', activeMenu: 'newsIndex' }
+					}
+				]
 			}
 		]
 	},
@@ -101,7 +110,7 @@ export const constantRouterMap = [
 				path: 'mineralProductsIndex',
 				name: 'mineralProductsIndex',
 				component: () => import('@/views/mineralProducts/index'),
-				meta: { title: '书记天下矿产', icon: 'home' }
+				meta: { title: '书记天下矿产', icon: 'home', activeMenu: 'mineralProductsIndex' }
 			}
 		]
 	},
@@ -114,7 +123,7 @@ export const constantRouterMap = [
 				path: 'resourcesIndex',
 				name: 'resourcesIndex',
 				component: () => import('@/views/resources/index'),
-				meta: { title: '图示古今资源', icon: 'home' }
+				meta: { title: '图示古今资源', icon: 'home', activeMenu: 'resourcesIndex' }
 			}
 		]
 	},
@@ -127,7 +136,7 @@ export const constantRouterMap = [
 				path: 'informationIndex',
 				name: 'informationIndex',
 				component: () => import('@/views/information/index'),
-				meta: { title: '库存海量信息', icon: 'home' }
+				meta: { title: '库存海量信息', icon: 'home', activeMenu: 'informationIndex' }
 			}
 		]
 	},
@@ -140,7 +149,7 @@ export const constantRouterMap = [
 				path: 'civilizationIndex',
 				name: 'civilizationIndex',
 				component: () => import('@/views/civilization/index'),
-				meta: { title: '普及地学文明', icon: 'home' }
+				meta: { title: '普及地学文明', icon: 'home', activeMenu: 'civilizationIndex' }
 			}
 		]
 	},
