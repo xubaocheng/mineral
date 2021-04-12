@@ -520,5 +520,26 @@ module.exports = [
 				'msg': '成功'
 			}
 		}
+	},
+	{
+		url: '/vue-admin-template/detail',
+		type: 'post',
+		response: config => {
+			return {
+				'code': 20000,
+				data:
+					{
+						title: '@ctitle()',
+						date: '@now()',
+						source: '@cword(4, 3)',
+						author: '@cname()',
+						fontSize: '@cword("大中小")',
+						pageviews: '@increment(1000)',
+						paragraph: '@cparagraph(1, 3)',
+						'img|2': ['@image(300 x 300)']
+					},
+				'msg': '成功'
+			}
+		}
 	}
 ]

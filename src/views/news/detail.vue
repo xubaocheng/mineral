@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { detail } from '@/api/news'
 export default {
 	name: 'DetailPage',
 
@@ -11,14 +12,27 @@ export default {
 
 	data() {
 		return {
+			serverData: []
 		}
 	},
 
 	computed: {},
 
-	mounted() {},
+	mounted() {
+		this.init()
+	},
 
-	methods: {}
+	methods: {
+		init() {
+			const params = {
+				a: 1
+			}
+			detail(params).then(res => {
+				this.serverData = res.data
+				console.log(this.serverData)
+			})
+		}
+	}
 }
 
 </script>

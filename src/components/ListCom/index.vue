@@ -84,6 +84,7 @@ export default {
 		padding-bottom: 20px;
 		border-bottom: 2px solid #bfbfbf;
 		margin-bottom: 25px;
+		cursor: pointer;
 		&-img{
 			img{
 				width: 190px;
