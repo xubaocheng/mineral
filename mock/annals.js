@@ -533,10 +533,10 @@ module.exports = [
 						date: '@now()',
 						source: '@cword(4, 3)',
 						author: '@cname()',
-						fontSize: '@cword("大中小")',
+						fontSize: '大 中 小',
 						pageviews: '@increment(1000)',
-						paragraph: '@cparagraph(1, 3)',
-						'img|2': ['@image(300 x 300)']
+						'paragraph|5': ['@cparagraph(10, 30)'],
+						'img|2': ['@image(400 x 300)']
 					},
 				'msg': '成功'
 			}
