@@ -110,7 +110,47 @@ export const constantRouterMap = [
 				path: 'mineralProductsIndex',
 				name: 'mineralProductsIndex',
 				component: () => import('@/views/mineralProducts/index'),
-				meta: { title: '书记天下矿产', icon: 'home', activeMenu: 'mineralProductsIndex' }
+				meta: { title: '书记天下矿产', icon: 'home', activeMenu: 'mineralProductsIndex' },
+				redirect: '/mineralProducts/mineralProductsIndex/general-records',
+				children: [
+					{
+						path: 'general-records',
+						name: 'general-records',
+						component: () => import('@/views/mineralProducts/components/general-records'),
+						meta: { title: '总志', activeMenu: 'mineralProductsIndex' }
+					},
+					{
+						path: 'mineral-records',
+						name: 'mineral-records',
+						component: () => import('@/views/mineralProducts/components/mineral-records'),
+						meta: { title: '矿种志书', activeMenu: 'mineralProductsIndex' }
+					},
+					{
+						path: 'provincial-chronicles',
+						name: 'provincial-chronicles',
+						component: () => import('@/views/mineralProducts/components/provincial-chronicles'),
+						meta: { title: '省级志书', activeMenu: 'mineralProductsIndex' }
+					},
+					{
+						path: 'local-records',
+						name: 'local-records',
+						component: () => import('@/views/mineralProducts/components/local-records'),
+						meta: { title: '区带志书', activeMenu: 'mineralProductsIndex' }
+					},
+					{
+						path: 'special-report',
+						name: 'special-report',
+						component: () => import('@/views/mineralProducts/components/special-report'),
+						meta: { title: '专题报告', activeMenu: 'mineralProductsIndex' }
+					},
+					{
+						path: 'popular-edition',
+						name: 'popular-edition',
+						component: () => import('@/views/mineralProducts/components/popular-edition'),
+						meta: { title: '普及本', activeMenu: 'mineralProductsIndex' }
+					}
+
+				]
 			}
 		]
 	},

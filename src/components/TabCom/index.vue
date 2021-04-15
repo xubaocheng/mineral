@@ -34,11 +34,15 @@ export default {
 
 	computed: {},
 
-	mounted() {},
+	mounted() {
+		this.currentIndex = this.tabBtn.filter(item => {
+			return item.label === this.$route.meta.title
+		})[0].index
+	},
 
 	methods: {
 		handlerBtnFn(index, name) {
-			this.currentIndex = index
+			this.$emit('changeNameBtn', name)
 		}
 	}
 }
