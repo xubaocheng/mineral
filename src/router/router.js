@@ -82,19 +82,25 @@ export const constantRouterMap = [
 				path: 'newsIndex',
 				name: 'newsIndex',
 				component: () => import('@/views/news/index'),
-				meta: { title: '新闻资讯', icon: 'home' },
+				meta: { title: '列表', icon: 'home', breadcrumb: false },
 				redirect: '/news/newsIndex/newsList',
 				children: [
 					{
 						path: 'newsList',
 						name: 'newsList',
-						component: () => import('@/views/news/list'),
-						meta: { title: '列表', icon: 'home', activeMenu: 'newsIndex' }
+						component: () => import('@/views/news/components/newsList'),
+						meta: { title: '新闻资讯', icon: 'home', activeMenu: 'newsIndex' }
+					},
+					{
+						path: 'achievementsList',
+						name: 'achievementsList',
+						component: () => import('@/views/news/components/achievementsList'),
+						meta: { title: '成果快讯', icon: 'home', activeMenu: 'newsIndex' }
 					},
 					{
 						path: 'newsDetail',
 						name: 'newsDetail',
-						component: () => import('@/views/news/detail'),
+						component: () => import('@/views/news/components/detail'),
 						meta: { title: '列表详情', icon: 'home', activeMenu: 'newsIndex' }
 					}
 				]

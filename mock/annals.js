@@ -541,5 +541,24 @@ module.exports = [
 				'msg': '成功'
 			}
 		}
+	},
+	{
+		url: '/vue-admin-template/mineralProductsList',
+		type: 'post',
+		response: config => {
+			return {
+				'code': 20000,
+				'data|30':
+					[{
+						title: '@ctitle()',
+						date: '@now()',
+						source: '@cword(4, 3)',
+						author: '@cname()',
+						paragraph: '@cparagraph(2,4)',
+						img: '@image(120 x 160)'
+					}],
+				'msg': '成功'
+			}
+		}
 	}
 ]
