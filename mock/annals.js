@@ -551,8 +551,7 @@ module.exports = [
 				'data|30':
 					[{
 						title: '@ctitle()',
-						date: '@now()',
-						source: '@cword(4, 3)',
+						date: '@date()',
 						author: '@cname()',
 						paragraph: '@cparagraph(2,4)',
 						img: '@image(120 x 160)'

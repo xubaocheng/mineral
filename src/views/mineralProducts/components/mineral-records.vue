@@ -59,9 +59,39 @@
 		<div class="mineral-records-content">
 			<el-row :gutter="20">
 				<el-col v-for="(item,index) in serverData" :key="`serverData_${index}`" :span="8">
-					<div class="mineral-records-content-item">11</div>
+					<div class="mineral-records-content-item clearFix">
+						<div class="mineral-records-content-item-img left">
+							<img :src="item.img" alt="">
+						</div>
+						<div class="mineral-records-content-item-text right">
+							<h3>{{ item.title }}</h3>
+							<p>
+								<span>主编：</span>
+								<span>{{ item.author }}</span>
+							</p>
+							<p>
+								<span>出版日期：</span>
+								<span>{{ item.date }}</span>
+							</p>
+							<p>
+								<span>内容提要：</span>
+								<strong>{{ item.paragraph }}</strong>
+							</p>
+							<div style="text-align:right;">
+								<el-button size="small" round>详情</el-button>
+							</div>
+						</div>
+					</div>
 				</el-col>
 			</el-row>
+			<el-pagination
+				style="text-align:center; margin-bottom:10px;"
+				background
+				layout="prev, pager, next"
+				prev-text="上一页"
+				next-text="下一页"
+				:total="100"
+				/>
 		</div>
 	</div>
 </template>
@@ -338,8 +368,40 @@ export default {
 		&-item{
 			width: 100%;
 			height: 210px;
+			padding: 25px 20px;
 			border:1px solid #bcc7c3;
 			margin-bottom: 20px;
+			&-img{
+				width: 120px;
+				img{
+					width: 100%;
+					height: 100%;
+					display: block;
+				}
+			}
+			&-text{
+				width: 200px;
+				h3{
+					font-weight: bold;
+					font-size: 18px;
+					line-height: 30px;
+					color: #050505;
+				}
+				p{
+					line-height: 25px;
+					color: #acacac;
+					span{
+						display: inline-block;
+					}
+					strong{
+						display: inline-block;
+						width: 100%;
+						overflow: hidden;
+						text-overflow:ellipsis;
+						white-space: nowrap;
+					}
+				}
+			}
 		}
 	}
 }
